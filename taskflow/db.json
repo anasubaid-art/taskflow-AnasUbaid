@@ -1,0 +1,125 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Anas Ubaid",
+      "email": "admin@taskflow.com",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "name": "Ali Raza",
+      "email": "member@taskflow.com",
+      "password": "member123",
+      "role": "member"
+    },
+    {
+      "id": "3",
+      "name": "Haider Ali",
+      "email": "haider@taskflow.com",
+      "password": "haider123",
+      "role": "member"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "name": "Website redesign",
+      "description": "Redesign the company website",
+      "color": "#6D5EFC",
+      "members": [
+        "1",
+        "2",
+        "3"
+      ],
+      "createdBy": "1"
+    },
+    {
+      "id": "2",
+      "name": "Mobile Application",
+      "description": "Build the mobile application",
+      "color": "#2DD4BF",
+      "members": [
+        "1",
+        "2"
+      ],
+      "createdBy": "1"
+    },
+    {
+      "name": "Rebuild UI",
+      "description": "Rebuild the whole UI again",
+      "color": "#6D5EFC",
+      "members": [
+        "2"
+      ],
+      "createdBy": "1",
+      "id": "gdXZWGFjmVE"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "projectId": "1",
+      "title": "Create homepage design",
+      "description": "Design the main homepage",
+      "status": "todo",
+      "priority": "high",
+      "assigneed": "2",
+      "dueDate": "2026-11-27",
+      "labels": [
+        "Design"
+      ],
+      "subtasks": [],
+      "order": 1
+    },
+    {
+      "id": "2",
+      "projectId": "1",
+      "title": "Build navigation bar",
+      "description": "Create responsive navigation",
+      "status": "inprogress",
+      "priority": "medium",
+      "assigneed": "3",
+      "dueDate": "2026-11-25",
+      "labels": [
+        "Development"
+      ],
+      "subtasks": [],
+      "order": 1
+    },
+    {
+      "id": "3",
+      "projectId": "1",
+      "title": "Test contact form",
+      "description": "Check contact form validation",
+      "status": "review",
+      "priority": "urgent",
+      "assigneed": "2",
+      "dueDate": "2026-11-26",
+      "labels": [
+        "Testing"
+      ],
+      "subtasks": [],
+      "order": 1
+    },
+    {
+      "id": "4",
+      "projectId": "1",
+      "title": "Setup project repository",
+      "description": "Initialize the project repository",
+      "status": "done",
+      "priority": "low",
+      "assigneed": "1",
+      "dueDate": "2026-11-20",
+      "labels": [
+        "Development"
+      ],
+      "subtasks": [],
+      "order": 1
+    }
+  ],
+  "comments": [],
+  "activities": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}

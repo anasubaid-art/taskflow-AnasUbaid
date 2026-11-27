@@ -1,0 +1,234 @@
+.board-page {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text-primary);
+    padding: 28px 32px;
+}
+
+.board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.board-header h1 {
+    font-size: 28px;
+    margin: 12px 0 6px;
+}
+
+.board-header p {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.back-button {
+    background: transparent;
+    color: var(--text-secondary);
+    border: none;
+    cursor: pointer;
+    padding: 8px 0;
+}
+
+.create-task-button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.kanban-board {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(272px, 1fr));
+    gap: 16px;
+    overflow-x: auto;
+    align-items: start;
+}
+
+.kanban-column {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 12px;
+    min-height: 400px;
+}
+
+.column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 4px;
+}
+
+.column-header h3 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.column-count {
+    display: flex;
+    gap: 3px;
+    background: var(--elevated);
+    padding: 5px 9px;
+    border-radius: var(--radius-pill);
+    font-size: 12px;
+}
+
+.wip-limit {
+    color: var(--warning);
+}
+
+.column-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 14px;
+    box-shadow: var(--shadow-sm);
+}
+
+.task-card:hover {
+    border-color: var(--border-strong);
+    transform: translate(-2px);
+}
+
+.task-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.task-card h4 {
+    font-size: 15px;
+    line-height: 21px;
+    margin-bottom: 10px;
+}
+
+.task-description {
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.priority-badge {
+    padding: 4px 8px;
+    border-radius: var(--radius-xs);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.priority-badge.low {
+    background: var(--disabled-bg);
+    color: var(--text-secondary);
+}
+
+.priority-badge.medium {
+    background: var(--info-soft);
+    color: var(--info);
+}
+
+.priority-badge.high {
+    background: var(--warning-soft);
+    color: var(--warning);
+}
+
+.priority-badge.urgent {
+    background: var(--error-soft);
+    color: var(--error);
+}
+
+.task-date {
+    font-size: 11px;
+    color: var(--text-tertiarry);
+}
+
+.task-date.overdue {
+    color: var(--error);
+}
+
+.task-labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 12px 0;
+}
+
+.task-label {
+    padding: 4px 8px;
+    background: var(--disabled-bg);
+    color: var(--text-secondary);
+    border-radius: var(--radius-xs);
+    font-size: 11px;
+}
+
+.task-subtasks {
+    margin-top: 14px;
+}
+
+.subtask-info {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 4px;
+    background: var(--disabled-bg);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary);
+    border-radius: var(--radius-pill);
+}
+
+.empty-column {
+    padding: 30px 10px;
+    text-align: center;
+    color: var(--text-tertiarry);
+    font-size: 13px;
+}
+
+.add-task-link {
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    color: var(--primary-hover);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .board-page {
+        padding: 20px 16px;
+    }
+    .kanban-board{
+        grid-template-columns: repeat(4, minmax(272px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .board-header {
+        align-items: center;
+        flex-direction: column;
+        gap: 16px;
+    }
+}
