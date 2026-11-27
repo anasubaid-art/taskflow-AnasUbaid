@@ -1,0 +1,47 @@
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+    background: var(--bg);
+}
+
+.app-main {
+    flex: 1;
+    min-width: 0;
+    min-height: 100vh;
+    background: var(--bg);
+}
+
+@media (max-width: 700px) {
+    .app-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar-projects,
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .dsidebar-logo {
+        margin-bottom: 16px;
+    }
+
+    .sidebar-logo {
+        margin-bottom: 16px;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .sidebar-link {
+        flex-shrink: 0;
+    }
+}
