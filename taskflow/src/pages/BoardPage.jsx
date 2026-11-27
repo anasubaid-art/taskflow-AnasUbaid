@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useGetTasksByProjectQuery } from "../features/tasks/tasksApi";
-import { useGetProjectsQuery } from "../features/projects/projectsapi";
+import { useGetProjectsQuery } from "../features/projects/projectsapi"
+import TaskCard from "../components/TaskCard";
 import "../styles/board.css";
 
 const columns = [
@@ -11,6 +12,7 @@ const columns = [
     {
         id: "inprogress",
         title: "In Progress",
+        limit: 5,
     },
     {
         id: "review",
@@ -31,15 +33,16 @@ function BoardPage() {
         isError,
         refetch,
     } = useGetTasksByProjectQuery(projectId);
-    const { data:projects = [] } = useGetProjectsQuery();
+    const { data:projects = [],
+    } = useGetProjectsQuery();
     const project = projects.find(
-        (item) =>  item.id === projectId
+        (item) =>  String(item.id) === String(projectId)
     );
 
     if (isLoading) {
         return (
             <div className="board-page">
-                <p>Loading tasks...</p>
+                <p>Loading Board...</p>
             </div>
         );
     }
@@ -47,6 +50,7 @@ function BoardPage() {
     if (isError) {
         return (
             <div className="board-page">
+            <h1>Something went wrong</h1>
             <p>Failed to load tasks.</p>
             <button onClick={refetch}>Retry</button>
             </div>
@@ -58,37 +62,44 @@ function BoardPage() {
                 <div>
                     <button className="back-button" onClick={() => navigate("/projects")}>Back to Projects</button>
                     <h1>{project?.name || "kanban Board"}</h1>
-                    <p>Manage your projects tasks</p>
+                    <p>{project?.members?.length || 0} members {" . "} {tasks.length} tasks</p>
                 </div>
-                <button className="btn btn-primary">+ Create Task</button>
+                <button className="create-task-button">+ Create Task</button>
             </div>
             <div className="kanban-board">
                 {columns.map((column) => {
-                    const columnTasks = tasks.filter(
+                    const columnTasks = tasks
+                    .filter(
                         (task) => task.status === column.id
+                    )
+                    .sort(
+                        (a, b) => (a.order || 0) - (b.order || 0)
                     );
                     return (
                         <div className="kanban-column" key={column.id}>
                             <div className="column-header">
                                 <h3>{column.title}</h3>
-                                <span>
-                                    {columnTasks.length}
-                                </span>
+                                <div className="column-count">
+                                    <span>
+                                        {columnTasks.length}
+                                    </span>
+                                    {column.limit && (
+                                        <span className="wip-limit">
+                                            / {column.limit}
+                                        </span>
+                                    )}
+                                </div>
                             </div>
                             <div className="column-tasks">
                                 {columnTasks.length === 0 ? (
                                     <p className="empty-column">No tasks yet</p>
                                 ) : (
                                     columnTasks.map((task) => (
-                                        <div className="task-card" key={task.id}>
-                                            <h4>{task.title}</h4>
-                                            <p>{task.description}</p>
-                                            <span className={`priority-badge ${task.priority}`}>{task.priority}</span>
-                                            <p className="task-date">Due: {task.dueDate}</p>
-                                        </div>
+                                        <TaskCard key={task.id} task={task}/>
                                     ))
                                 )}
                             </div>
+                            <button className="add-task-link">+  Add task </button>
                         </div>
                     );
                 })}

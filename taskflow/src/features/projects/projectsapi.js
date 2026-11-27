@@ -19,7 +19,7 @@ export const projectsApi = api.injectEndpoints({
             query: ({ id, ...data }) => ({
                 url: `projects/${id}`,
                 method: "PATCH",
-                body: date,
+                body: data,
             }),
             invalidatesTags: ["Projects"],
         }),
