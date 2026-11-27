@@ -1,10 +1,10 @@
 :root {
     color-scheme: dark;
 
-    --bg: #0b0b0f;
+    --bg: #0B0B0F;
     --surface: #131318;
-    --card: #1b1b22;
-    --elevated: #24242e;
+    --card: #1B1B22;
+    --elevated: #24242E;
     --overlay: rgba(6,6,10,0.72);
 
     --border: rgba(255,255,255,0.08);
@@ -31,7 +31,7 @@
     --warning: #FBBF24;
     --warning-soft: rgba(251,191,36,0.15);
     --error: #F87171;
-    -error-soft: rgba(248,113,113,0.15);
+    --error-soft: rgba(248,113,113,0.15);
     --info: #60A5FA;
     --info-soft: rgba(96,165,250,0.15);
     
@@ -48,7 +48,7 @@
         rgba(109,94,252,0) 60%
         );
 
-    --logo-gradient: liner-gradient(
+    --logo-gradient: linear-gradient(
         135deg,
         #6D5EFC 0%,
         #8B7CFF 50%,
@@ -110,13 +110,13 @@
         120% 120% at 50% 0%,
         rgba(109,94,252,0.10) 0%,
         rgba(109,94,252,0) 60%
-    )
+    );
 
 
     --shadow-sm: 0 2px 8px rgba(16,24,40,0.08);
     --shadow-md: 0 8px 24px rgba(16,24,40,0.10);
     --shadow-lg: 0 16px 48px rgba(16,24,40,0.12);
-    --shadow-xl: 0 28px 80px rgba(16,24,40,0,16);
+    --shadow-xl: 0 28px 80px rgba(16,24,40,0.16);
     --shadow-primary: 0 8px 28px rgba(109,94,252,0.35);
     --highlight-top: inset 0 1px 0 rgba(255,255,255,0.8);
 }
