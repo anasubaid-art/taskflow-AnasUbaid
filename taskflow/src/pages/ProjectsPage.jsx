@@ -131,6 +131,7 @@ function ProjectsPage() {
             <div key={project.id} className="project-card">
                 <h3>{project.name}</h3>
                 <p>{project.description}</p>
+                <button className="btn btn-primary" onClick={() => navigate(`/projects/${project.id}`)}>Open Board</button>
                 {user?.role === "admin" && (
                     <div className="project-actions">
                         <button className="btn btn-danger btn-sm" onClick={() => openDeletConfirm(project)}>Delete</button>
